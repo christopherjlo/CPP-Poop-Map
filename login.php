@@ -15,8 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     #if user has stuff in it, now we check if the password they entered matches up
     if ($user) {
-
-       if (password_verify($_POST["password"], $user["passwordHash"])) {
+        if ($_POST["password"] == $user["passwordHash"]) {
             session_start();
 
             $_SESSION["currentID"] = $user["userid"];
@@ -47,6 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
 <html>
+
 <head>
     <title>Login</title>
     <link rel="stylesheet" href="styles/login.css">
@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <body>
     <img src="/images/poop_pic.png" class="logo">
-    <p class = "poop_title" href = "" > Poop Map </h1>
+    <p class="poop_title" href=""> Poop Map </h1>
     <div class=login-form>
         <h1>Log in</h1>
         <div id="error" class="error">
@@ -75,4 +75,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <h2 class="small" style="margin-top: 1%; color: black;">Don't have an account? <a id="create">Create one here!</a></h2>
     </div>
 </body>
+
 </html>
