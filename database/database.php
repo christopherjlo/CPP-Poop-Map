@@ -1,9 +1,11 @@
 <?php
 
-$host = "poopmap-database.cdoxevnwyxjg.us-west-1.rds.amazonaws.com";
-$dbname = "poopmap";
-$username = "poopadmin";
-$password = "pooplovers18593";
+$env = parse_ini_file('.env');
+
+$host = $env["HOST"];
+$dbname = $env["DB_NAME"];
+$username = $env["USER_NAME"];
+$password = $env["PASSWORD"];
 
 $conn = mysqli_connect($host, $username, $password, $dbname);
 

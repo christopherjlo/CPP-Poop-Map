@@ -1,0 +1,4 @@
+HOST = "poopmap-database.cdoxevnwyxjg.us-west-1.rds.amazonaws.com"
+DB_NAME = "poopmap"
+USER_NAME = "poopadmin"
+PASSWORD = "pooplovers18593"
