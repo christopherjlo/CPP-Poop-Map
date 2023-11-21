@@ -1,7 +1,7 @@
 <?php
 
 $host = "poopmap-database.cdoxevnwyxjg.us-west-1.rds.amazonaws.com";
-$dbname = "poopmap-database";
+$dbname = "poopmap";
 $username = "poopadmin";
 $password = "pooplovers18593";
 
