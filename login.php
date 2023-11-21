@@ -17,7 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($user) {
 
        if (password_verify($_POST["password"], $user["passwordHash"])) {
-        
             session_start();
 
             $_SESSION["currentID"] = $user["userid"];
