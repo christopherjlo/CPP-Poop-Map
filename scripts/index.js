@@ -10,7 +10,6 @@ function setCoords(coord_arr) {
 function refreshMap(coord_arr) {
     document.write(coord_arr[i][2]);
 }
-
 //FOR TESTING
 // function printCoords(coord_arr) {
 //   for (let i = 0; i < coord_arr.length; i++) {
@@ -50,4 +49,3 @@ function initMap() {
         }
       })(marker, count));
     } //end for
-  }
