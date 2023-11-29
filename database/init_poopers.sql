@@ -27,7 +27,7 @@ create table Poop(
 create table Friends(
     usr1id int not null,
     usr2id int not null,
-    dateAdded varchar(255) not null,
+    #dateAdded varchar(255) not null,
 	primary key (usr1id,usr2id),
     foreign key (usr1id) references Pooper(userid),
     foreign key (usr2id) references Pooper(userid)
@@ -50,9 +50,9 @@ insert into Poop(pooperid,latitude,longitude,tag,timePosted, note) values(4,5.10
 
 
 #populate friends table
-insert into Friends(usr1id,usr2id,dateAdded) values(1,2,"11/6/2023"); # Chris and Justin
-insert into Friends(usr1id,usr2id,dateAdded) values(2,3,"11/6/2023"); # Justin and Jason
-insert into Friends(usr1id,usr2id,dateAdded) values(3,4,"11/6/2023"); # Jason and Jacob
-insert into Friends(usr1id,usr2id,dateAdded) values(4,1,"11/6/2023"); #Jacob and Chris
+insert into Friends(usr1id,usr2id) values(1,2); # Chris and Justin
+insert into Friends(usr1id,usr2id) values(2,3); # Justin and Jason
+insert into Friends(usr1id,usr2id) values(3,4); # Jason and Jacob
+insert into Friends(usr1id,usr2id) values(4,1); #Jacob and Chris
 
 
