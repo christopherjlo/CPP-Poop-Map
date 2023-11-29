@@ -17,6 +17,7 @@ create table Poop(
     pooperid int not null,
     latitude double not null,
     longitude double not null,
+    tag varchar(255),
     timePosted varchar(255),
     note varchar(255),
     foreign key (pooperid) references Pooper(userid),
@@ -39,11 +40,13 @@ insert into Pooper(fName,lName,email,passwordHash) values("Jacob","Alonzo","jaco
 insert into Pooper(fName,lName,email,passwordHash) values("Jason","Arenas","jason@gmail.com","test"); #id 4
 
 #populate poop table
-insert into Poop(pooperid,latitude,longitude,timePosted, note) values(1,20.34242,-123.82003,"1:52:37","came out ez");
-insert into Poop(pooperid,latitude,longitude,timePosted, note) values(2,25.34242,-100.82003,"1:50:00","constipated");
-insert into Poop(pooperid,latitude,longitude,timePosted, note) values(3,40.34242,-108.03003,"1:55:33","died");
-insert into Poop(pooperid,latitude,longitude,timePosted, note) values(2,30.34210,-89.82073,"2:02:37","finally came out this time");
-insert into Poop(pooperid,latitude,longitude,timePosted, note) values(4,5.10,-8.8273,"2:02:37","went well");
+insert into Poop(pooperid,latitude,longitude,tag,timePosted, note) values(1,34.05893, -117.823956,"Quad","1:52:37","came out ez");
+insert into Poop(pooperid,latitude,longitude,tag,timePosted, note) values(1,34.058067, -117.822046,"Library","3:52:37","IT HURTED");
+insert into Poop(pooperid,latitude,longitude,tag,timePosted, note) values(1,34.060062, -117.820225,"Japanese Garden","5:52:37","IT BURNSSS");
+insert into Poop(pooperid,latitude,longitude,tag,timePosted, note) values(2,25.34242,-100.82003,"tag","1:50:00","might be constipated");
+insert into Poop(pooperid,latitude,longitude,tag,timePosted, note) values(3,40.34242,-108.03003,"tag","1:55:33","died");
+insert into Poop(pooperid,latitude,longitude,tag,timePosted, note) values(2,30.34210,-89.82073,"tag","2:02:37","finally came out this time");
+insert into Poop(pooperid,latitude,longitude,tag,timePosted, note) values(4,5.10,-8.8273,"tag","2:02:37","went well");
 
 
 #populate friends table
