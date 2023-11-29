@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title>Signup</title>
+    <link rel="stylesheet" href="styles/login.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+</head>
+
+<body>
+    <img src="images/poop_pic.png" class="logo">
+    <p class = "poop_title" href = "" > Poop Map </h1>
+    <div class=login-form>
+        <h1>Sign up</h1>
+        <div id="error" class="error">
+            <!-- <?php
+            if ($is_invalid) {
+                echo "<p class='error'>", $errmsg, "</p>";
+            } ?> -->
+        </div>
+        <form id="form" action = "process-signup.php" method = "post" novalidate>
+            <p class="title">Email:</p><br>
+            <input type="email" name="email" class="input blue-border" placeholder=" Enter Email"><br>
+
+            <p class="title">First name:</p><br>
+            <input type="text" name="fName" class="input blue-border" placeholder=" Enter First name"><br>
+
+            <p class="title">Last name:</p><br>
+            <input type="text" name="lName" class="input blue-border" placeholder=" Enter Last name"><br>
+
+            <p class="title">Password:</p><br>
+            <input type="password" name="password" class="input blue-border" placeholder=" Create Password"><br>
+
+            <p class="title">Password confirmation:</p><br>
+            <input type="password" name="password_confirmation" class="input blue-border" placeholder=" Confirm Password"><br>
+
+            <input class="button borderless" type="submit" value="Sign up" />
+        </form>
+        <img src="images/poop_marker.png" id="poop_marker_logo">
+    </div>
+</body>
+</html>
