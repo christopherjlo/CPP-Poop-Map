@@ -9,12 +9,6 @@ if (isset($_SESSION["currentID"])) {
     $mysqli = require __DIR__ . "/database/database.php";
     $sql = sprintf("SELECT latitude, longitude, note FROM Poop where pooperid = {$_SESSION["currentID"]};");
 
-session_start();
-
-if (isset($_SESSION["currentID"])) {
-    $mysqli = require __DIR__ . "/database/database.php";
-    $sql = sprintf("SELECT latitude, longitude, note FROM Poop where pooperid = {$_SESSION["currentID"]};");
-
     $result = $mysqli->query($sql);
     $poop_coord_array = [];
     while ($row = $result->fetch_assoc()) {
@@ -42,19 +36,12 @@ if (isset($_SESSION["currentID"])) {
 ?>
 
 <html>
-
-
 <head>
     <link rel = "stylesheet" href = "styles/index.css">
 </head>
 <body>
     <div id="map"></div>
     <button id="test-butt" type="button" onclick="initMap()">Refresh Map</button>
-
-    <body>
-    <div id="map"></div>
-    <button id="test-butt" type="button" onclick="initMap()">Refresh Map</button>
-
     <script type="text/javascript" src="scripts/index.js"></script>
         <script type ='text/javascript'>
             var passedArray =  <?php echo json_encode($poop_coord_array); ?>;  // convert PHP array into JS array
@@ -63,6 +50,5 @@ if (isset($_SESSION["currentID"])) {
         <script async defer
             src=<?php echo $apiCallString ?>>
         </script>
-</body>
 </body>
 </html>

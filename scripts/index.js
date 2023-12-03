@@ -54,3 +54,4 @@ function initMap() {
         }
       })(marker, count));
     } //end for
+  }
