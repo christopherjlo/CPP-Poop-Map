@@ -1,5 +1,7 @@
 <?php
-
+$env = parse_ini_file('.env');
+$key = $env["API_KEY"];
+$apiCallString = "https://maps.googleapis.com/maps/api/js?key=" . $key . "&callback=initMap";
 
 session_start();
 
@@ -48,7 +50,7 @@ if (isset($_SESSION["currentID"])) {
         setCoords(passedArray);               // calls setCoords method in index.js (to set locations array) before initMap is called
     </script>
     <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCS63jOsX26xQyOakRm6sCOZkU9voFkVaU&callback=initMap">
+        src=<?php echo $apiCallString ?>>
     </script>
 </body>
 </html>
