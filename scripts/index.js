@@ -11,6 +11,9 @@ function refreshMap(coord_arr) {
     document.write(coord_arr[i][2]);
 }
 
+function refreshMap(coord_arr) {
+    document.write(coord_arr[i][2]);
+}
 //FOR TESTING
 // function printCoords(coord_arr) {
 //   for (let i = 0; i < coord_arr.length; i++) {
@@ -46,8 +49,8 @@ function initMap() {
   google.maps.event.addListener(marker, 'click', (function (marker, count) {
         return function () {
           infowindow.setContent('<h1 style="text-align:center"> Insert location/tag here</h1>' + '<p style = "text-align:center">' + locations[count][2] + '</p>');
+          infowindow.setContent('<h1 style="text-align:center"> Insert location/tag here</h1>' + '<p style = "text-align:center">' + locations[count][2] + '</p>');
           infowindow.open(map, marker);
         }
       })(marker, count));
     } //end for
-  }
