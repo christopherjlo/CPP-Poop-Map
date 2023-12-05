@@ -3,7 +3,6 @@
 session_start();
 
 $userid = $latitude = $longitude = $tag = $note = $timestamp = null;
-$yuh = null;
 
 if (isset($_SESSION["currentID"])) {
     $userid = $_SESSION["currentID"];
@@ -11,12 +10,12 @@ if (isset($_SESSION["currentID"])) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["submit"])) {
-        $yuh = true;
 
         $latitude = $_POST["latitude"];
         $longitude = $_POST["longitude"];
         $tag = $_POST["tag"];
         $note = $_POST["note"];
+        $datestamp = $_POST["datestamp"];
         $timestamp = $_POST["timestamp"];
 
         // if tag/location and note/description is empty. Just put null value in record
@@ -33,14 +32,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // insert record into Poop table
         $mysqli = require __DIR__ . "/database/database.php";
-        $sql = "INSERT INTO Poop(pooperid, latitude, longitude, tag, timePosted, note)
-        VALUES(?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO Poop(pooperid, latitude, longitude, tag, datePosted, timePosted, note)
+        VALUES(?, ?, ?, ?, ?, ?, ?)";
         $stmt2 = $mysqli->stmt_init();
 
         if (!$stmt2->prepare($sql)) {
             die("SQL Error: " .  $mysqli->error);
         }
-        $stmt2->bind_param("ssssss", $userid, $latitude, $longitude, $tag, $timestamp, $note);
+        $stmt2->bind_param("sssssss", $userid, $latitude, $longitude, $tag, $datestamp, $timestamp, $note);
         $stmt2->execute();
     }
 }
@@ -49,22 +48,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
     <head>
         <title>Poop Creation</title>
+        <link rel="stylesheet" href="styles/poop_details.css">
     </head>
     <body>
-        <h1>New Poop</h1>
-        <?php
-        if ($yuh) {
-            echo $userid, "<br>";
-            echo $latitude, "<br>";
-            echo $longitude, "<br>";
-            echo $tag, "<br>";
-            echo $note, "<br>";
-            echo $timestamp, "<br>";
-        } ?>        
+        <h1>New Poop</h1>    
         <form id="form" method="post">
             <p>Date and time</p>
             <p><span id = "datestamp_ptag"></span></p>
             <p><span id = "timestamp_ptag"></span></p>
+            <input type = "text" id = "datestamp" name = "datestamp">
             <input type = "text" id = "timestamp" name = "timestamp">
 
             <p id="show_coords"></p>
@@ -85,10 +77,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <script type="text/javascript">
             // ---- Displaying current date + time ---- //
             var date = new Date();
-            var currentDate = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
+            var year = date.getFullYear().toString();
+            var currentDate = date.getDate() + "/" + (date.getMonth() + 1) + "/" + year.substr(2);
             var currentTime = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
             document.getElementById("datestamp_ptag").innerHTML = currentDate;  //for testing/display
             document.getElementById("timestamp_ptag").innerHTML = currentTime;  //for testing/display
+            document.getElementById("datestamp").value = currentDate;
             document.getElementById("timestamp").value = currentTime;
 
             // ---- Getting coordinates ---- //
