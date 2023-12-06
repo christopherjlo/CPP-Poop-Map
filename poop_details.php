@@ -54,8 +54,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h1>New Poop</h1>    
         <form id="form" method="post">
             <p>Date and time</p>
-            <p><span id = "datestamp_ptag"></span></p>
-            <p><span id = "timestamp_ptag"></span></p>
             <input type = "text" id = "datestamp" name = "datestamp">
             <input type = "text" id = "timestamp" name = "timestamp">
 
@@ -63,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type = "text" name = "latitude" id = "latitude_field">
             <input type = "text" name = "longitude" id = "longitude_field">
 
-            <p>Tag location (optional)</p>
+            <p>Location (optional)</p>
             <input type="text" name="tag" placeholder="Enter location"><br>
 
             <p>Description (optional)</p>
@@ -75,17 +73,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <a href="index.php"><button class="button">Back</button></a>
 
         <script type="text/javascript">
-            // ---- Displaying current date + time ---- //
+            // ---- Get and display current date + time ---- //
             var date = new Date();
             var year = date.getFullYear().toString();
             var currentDate = date.getDate() + "/" + (date.getMonth() + 1) + "/" + year.substr(2);
             var currentTime = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
-            document.getElementById("datestamp_ptag").innerHTML = currentDate;  //for testing/display
-            document.getElementById("timestamp_ptag").innerHTML = currentTime;  //for testing/display
             document.getElementById("datestamp").value = currentDate;
             document.getElementById("timestamp").value = currentTime;
 
-            // ---- Getting coordinates ---- //
+            // ---- Get and display coordinates ---- //
             const coord_p = document.getElementById("show_coords");             //for testing/display
             var lat = document.getElementById("latitude_field");
             var long = document.getElementById("longitude_field");
@@ -103,7 +99,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 coord_p.innerHTML = "Latitude: " + position.coords.latitude +       //for testing/display
                 "<br>Longitude: " + position.coords.longitude;
-            }  
+            } 
+            getLocation();
         </script>
     </body>
 </html>
