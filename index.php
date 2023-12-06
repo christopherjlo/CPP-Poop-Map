@@ -7,13 +7,13 @@ session_start();
 
 if (isset($_SESSION["currentID"])) {
     $mysqli = require __DIR__ . "/database/database.php";
-    $sql = sprintf("SELECT latitude, longitude, note FROM Poop where pooperid = {$_SESSION["currentID"]};");
+    $sql = sprintf("SELECT latitude, longitude, tag, note, datePosted FROM Poop where pooperid = {$_SESSION["currentID"]};");
 
     $result = $mysqli->query($sql);
     $poop_coord_array = [];
     while ($row = $result->fetch_assoc()) {
         // echo $row["latitude"], " ", $row["longitude"], "<br>";
-        array_push($poop_coord_array, [$row["latitude"], $row["longitude"], $row['note']]);
+        array_push($poop_coord_array, [$row["latitude"], $row["longitude"], $row['tag'], $row['note'], $row['datePosted']]);
     }
 }
 
@@ -23,34 +23,25 @@ if (isset($_SESSION["currentID"])) {
 // $sql = sprintf("SELECT * FROM Pooper WHERE email = 'justin@gmail.com'");
 // $sql = sprintf("SELECT latitude, longitude, note FROM Poop where pooperid = 1;");
 
-// $result = $mysqli->query($sql);
-// $poop_coord_array = [];
-// while ($row = $result->fetch_assoc()) {
-//     // echo $row["latitude"], " ", $row["longitude"], "<br>";
-//     array_push($poop_coord_array, [$row["latitude"], $row["longitude"], $row['note']]);
-// }
-
 // foreach ($poop_coord_array as $coordinate_pair) {
 //     echo $coordinate_pair[0], "  ", $coordinate_pair[1], '<br>';
 // }
 ?>
 
 <html>
-
 <head>
     <link rel = "stylesheet" href = "styles/index.css">
 </head>
 <body>
     <div id="map"></div>
-    <button id="test-butt" type="button" onclick="initMap()">Refresh Map</button>
-
+    <a href="poop_details.php"><button id = "poop_button" >Drop poop</button></a>
     <script type="text/javascript" src="scripts/index.js"></script>
-    <script type ='text/javascript'>
-        var passedArray =  <?php echo json_encode($poop_coord_array); ?>;  // convert PHP array into JS array
-        setCoords(passedArray);               // calls setCoords method in index.js (to set locations array) before initMap is called
-    </script>
-    <script async defer
-        src=<?php echo $apiCallString ?>>
-    </script>
+        <script type ='text/javascript'>
+            var passedArray =  <?php echo json_encode($poop_coord_array); ?>;  // convert PHP array into JS array
+            setCoords(passedArray);               // calls setCoords method in index.js (to set locations array) before initMap is called
+        </script>
+        <script async defer
+            src=<?php echo $apiCallString ?>>
+        </script>
 </body>
 </html>
