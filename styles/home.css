@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'nexaheavy';
+    src: url('../fonts/nexa/nexa-heavy.woff2'),
+         url('../fonts/nexa/nexa-heavy.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#bg_div {
+    background-image: url("/images/blurred_poop_bg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:100%;
+    position:relative;
+}
+
+#poop_title {
+    font-family: Impact;
+    color: white;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: black;
+    font-size: 70px;
+    width: 19%;
+    left: 40.5%;
+    top: 25%;
+    position: relative;
+}
+
+.button {
+    background-color:#ED7B07;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 15px;
+    font-family: 'nexaheavy';
+}
+
+.button:hover {
+    background-color: #9a5f07;
+    cursor: pointer;
+}
+
+#login_button {
+    position: absolute;
+    font-size: 20px;
+    height: 8%;
+    width: 8%;
+    top:45%; left:38%;
+}
+
+#signup_button {
+    position: absolute;
+    font-size: 20px;
+    height: 8%;
+    width: 8%;
+    top:45%; right:39%;  
+}
+
+#poop_gif {
+    position: absolute;
+    font-size: 20px;
+    top:60%; left:44%;  
+}
