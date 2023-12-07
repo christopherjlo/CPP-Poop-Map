@@ -68,8 +68,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="text" name="note" placeholder="Enter description"><br>
             <input type="submit" name="submit" value="Save" id="submit">
         </form>
-
-        <button onclick="getLocation()">Show Coords</button>
         <a href="index.php"><button class="button">Back</button></a>
 
         <script type="text/javascript">
