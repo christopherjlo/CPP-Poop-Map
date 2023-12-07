@@ -1,6 +1,11 @@
 <?php
 
 $_SESSION["currentID"] = 2;
+$tableHtml = "<table class='friends-table border'cellspacing=\"0\" cellpadding=\"0\">
+<tr>
+    <th>Name</th>
+</tr>";
+$responseMsg = "";
 
 if (isset($_SESSION["currentID"])) {
     $mysqli5 = require __DIR__ . "/database/database.php";
@@ -29,10 +34,12 @@ if (isset($_SESSION["currentID"])) {
             $result5 = $mysqli5->query($stmt5);
             $users = $result5->fetch_assoc();
 
-            echo $users['fName'];
+            $tableHtml .= "<tr class='border'>";
+            $tableHtml .= "<td class='border'>". $users["fName"] . ' ' . $users["lName"] . "</td>";
+            $tableHtml .= "</tr>";
         }
     }
-}
+} else {echo("session not set!");}
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
@@ -43,13 +50,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $user = $result->fetch_assoc();
 
     if (empty($user)) {
-        echo 'User not found';
+        $responseMsg = 'User not found!';
     } else {
         $currentID = $_SESSION["currentID"]; // change later
         $searchedID = $user['userid'];
 
         if ($currentID == $searchedID) {
-            echo "Unforunately, you can't friend yourself :(";
+            $responseMsg = "Unforunately, you can't friend yourself :(";
         } else {
             $currentFriendedToSearched = False;
 
@@ -63,14 +70,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             }
 
             if ($currentFriendedToSearched == True) {
-                echo 'You are already friended with this person,';
+                $responseMsg = 'You are already friended with this person,';
             } else {
                 $sql4 = sprintf("INSERT INTO Friends (usr1id, usr2id) values(" . $currentID . ", " . $searchedID . ')');
                 $mysqli->query($sql4);
-                echo 'You have friended this person,';
+                $responseMsg = 'You have friended this person';
             }
-
-            echo "";
 
             // check if searched is friended with current
 
@@ -85,14 +90,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             }
 
             if ($searchedFriendedtoCurrent == True) {
-                echo ' and they have you friended as well!';
+                $responseMsg .= ' and they have you friended as well!';
             } else {
-                echo ' but they have not friended you yet!';
+                $responseMsg .= ' but they have not friended you yet!';
             }
 
-            if ($currentFriendedToSearched == True && $searchedFriendedtoCurrent == True) {
-                echo '     TRUE FRIENDS FOUND';
-            }
+            // if ($currentFriendedToSearched == True && $searchedFriendedtoCurrent == True) {
+            //     echo '     TRUE FRIENDS FOUND';
+            // }
         }
     }
 
@@ -123,7 +128,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $result5 = $mysqli5->query($stmt5);
                 $users = $result5->fetch_assoc();
 
-                echo $users['fName'];
+                //echo $users['fName'];
             }
         }
     }
@@ -132,14 +137,31 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <html>
 
-<header Friends Page </header>
+    <head>
+        <title>Friends Page</title>
+        <link rel="stylesheet" href="styles/friends.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    </head>
 
     <body>
         <br>
-        <form id="friendform" method="post">
-            <input type="email" name="email" placeholder="Search for an email:"><br><br>
-            <input type="submit" value="Search" />
-        </form>
+        <h2 style='text-align: center;'>Friends List</h2>
+        <div class = "search-friend">
+            <form id="friendform" method="post">
+                <input type="email" name="email" placeholder="Search for an email:"><br><br>
+                <i ></i>
+                <input type="submit" value="Add Friend" />
+            </form>
+        </div>
+        <div class = 'header'>
+
+        </div>
+        <div class = 'table-container'>
+            <div style = 'margin-left: auto; margin-right: auto;'><?php echo $responseMsg ?></div>
+            <div class = 'table-child'>
+                <?php echo $tableHtml; ?>
+            </div>
+        </div>
     </body>
 
 </html>
