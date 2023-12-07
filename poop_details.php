@@ -20,10 +20,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // if tag/location and note/description is empty. Just put null value in record
         if (empty($tag)) {
-            $tag = "NULL";
+            $tag = "";
         }
         if (empty($note)) {
-            $note = "NULL";
+            $note = "";
         }
 
         // convert latitude and longitude values into doubles
