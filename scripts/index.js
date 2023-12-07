@@ -11,21 +11,18 @@ function refreshMap(coord_arr) {
     document.write(coord_arr[i][2]);
 }
 
-//FOR TESTING
-// function printCoords(coord_arr) {
-//   for (let i = 0; i < coord_arr.length; i++) {
-//     document.write(coord_arr[i][0] + coord_arr[i][1]);
-//     document.write("<br>");
-//     document.write(typeof Numbercoord_arr[i][0]);
-//   }
-// }
-
 function initMap() {
-    var center = {lat: 34.057723, lng: -117.820096};
   var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 16,
-      center: center
+      center: {lat: 34.057723, lng: -117.820096},
     });
+  map.setOptions({
+    styles: [
+            {"featureType": "road",elementType: "labels",stylers:[{visibility: "off"}]},
+            {"featureType": "poi",elementType: "labels.icon",stylers:[{visibility: "off"}]},
+            {"featureType": "transit",elementType: "labels",stylers:[{visibility: "off"}]} 
+            ]
+  });
 
   var infowindow =  new google.maps.InfoWindow({});
 
