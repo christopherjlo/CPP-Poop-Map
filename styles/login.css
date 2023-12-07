@@ -28,6 +28,7 @@
     font-family: 'nexaextra_light';
 }
 
+
 h1 {    
     background-color: #E5E8E4;
     color:#ED7B07;
@@ -163,7 +164,7 @@ hr {
 }
 
 .small {
-    font-size:10px;
+    font-size:12px;
     color: #666866;
     margin-top: -4px;
 }
@@ -191,7 +192,7 @@ hr {
 }
 
 .button:hover {
-    background-color: #00A7D8;
+    background-color: #9a5f07;
     cursor: pointer;
 }
 
