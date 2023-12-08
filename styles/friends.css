@@ -1,0 +1,47 @@
+@font-face {
+    font-family: 'nexaextra_light';
+    src: url('../fonts/nexa/nexa-extralight.woff2'),
+         url('../fonts/nexa/nexa-extralight.woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+body {
+    font-family: 'nexaextra_light';
+    background-color: aliceblue;
+}
+
+.border {
+    border: 1px solid black;
+}
+
+th {
+    background-color:#a8511b;
+    padding: 5%;
+}
+td {
+    background-color: rgb(197, 121, 45);
+    padding: 5%;
+}
+
+.search-friend {
+    display: inline-block;
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    /* background-color: red;  */
+    padding: 1% 1% 1% 1%;
+  }
+
+.table-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+}
+
+.table-child {
+    margin-left: auto; 
+    margin-right: auto;
+    padding: 1%;
+}
+

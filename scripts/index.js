@@ -42,9 +42,20 @@ function initMap() {
   // when clicking on a marker display location and note (both optional)
   google.maps.event.addListener(marker, 'click', (function (marker, count) {
         return function () {
-          infowindow.setContent('<h2 style="text-align:center">' + locations[count][2] + '</h1>' + '<p style ="text-align:center; font-size: 15px">' + locations[count][3] + '</p>' +
-          '<p style = "text-align:center">' + locations[count][4] + '</p>');
-          infowindow.open(map, marker);
+          if ((locations[count][2] == "") && (locations[count][3] == "")) {
+            infowindow.setContent('<h2 class="tag">' + locations[count][4]);
+            infowindow.open(map, marker);
+          } else if (locations[count][2] == "") {
+            infowindow.setContent('<h2 class="tag">' + locations[count][4] + '</h2>' + '<p class="description">' + locations[count][3] + '</p>');
+            infowindow.open(map, marker);
+          } else if (locations[count][3] == "") {
+            infowindow.setContent('<h2 class="tag">' + locations[count][2] + '</h2>' + '<p class="description">' + locations[count][4] + '</p>');
+            infowindow.open(map, marker);
+          } else {
+            infowindow.setContent('<h2 class="tag">' + locations[count][2] + '</h2>' + '<p class="description">' + locations[count][3] + '</p>' +
+            '<p class="date">' + locations[count][4] + '</p>');
+            infowindow.open(map, marker);
+          }
         }
       })(marker, count));
     } //end for
