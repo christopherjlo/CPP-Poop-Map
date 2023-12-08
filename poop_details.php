@@ -70,8 +70,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <p class="title">Description (optional)</p><br>
                     <input type="text" name="note" class="input blue-border" placeholder=" Enter description" style="width: 300px;"><br>
                     <input class="button borderless" type="submit" name="submit" value="Save" id="submit">
-                    <a href="index.php"><button class="button borderless">Back</button></a>
                 </form>
+                <a href="index.php"><button class="button borderless">Back</button></a>
             </div>
         <script type="text/javascript">
             // ---- Get and display current date + time ---- //
