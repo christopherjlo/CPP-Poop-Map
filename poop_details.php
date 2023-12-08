@@ -20,10 +20,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // if tag/location and note/description is empty. Just put null value in record
         if (empty($tag)) {
-            $tag = "NULL";
+            $tag = "";
         }
         if (empty($note)) {
-            $note = "NULL";
+            $note = "";
         }
 
         // convert latitude and longitude values into doubles
@@ -51,25 +51,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <link rel="stylesheet" href="styles/poop_details.css">
     </head>
     <body>
-        <h1>New Poop</h1>    
-        <form id="form" method="post">
-            <p>Date and time</p>
-            <input type = "text" id = "datestamp" name = "datestamp">
-            <input type = "text" id = "timestamp" name = "timestamp">
+        <div class="background">
+            <img src="/images/poop_pic.png" class="logo">
+            <div class=poop-form>
+                <h1>New Poop</h1>    
+                <form id="form" method="post">
+                    <p class="title">Date and time</p><br>
+                    <input type = "text" id = "datestamp" name = "datestamp">
+                    <input type = "text" id = "timestamp" name = "timestamp">
 
-            <p id="show_coords"></p>
-            <input type = "text" name = "latitude" id = "latitude_field">
-            <input type = "text" name = "longitude" id = "longitude_field">
+                    <p id="show_coords"></p>
+                    <input type = "text" name = "latitude" id = "latitude_field">
+                    <input type = "text" name = "longitude" id = "longitude_field">
 
-            <p>Location (optional)</p>
-            <input type="text" name="tag" placeholder="Enter location"><br>
+                    <p class="title">Location (optional)</p><br>
+                    <input type="text" name="tag" class="input blue-border" placeholder=" Enter location"><br>
 
-            <p>Description (optional)</p>
-            <input type="text" name="note" placeholder="Enter description"><br>
-            <input type="submit" name="submit" value="Save" id="submit">
-        </form>
-        <a href="index.php"><button class="button">Back</button></a>
-
+                    <p class="title">Description (optional)</p><br>
+                    <input type="text" name="note" class="input blue-border" placeholder=" Enter description" style="width: 300px;"><br>
+                    <input class="button borderless" type="submit" name="submit" value="Save" id="submit">
+                    <a href="index.php"><button class="button borderless">Back</button></a>
+                </form>
+            </div>
         <script type="text/javascript">
             // ---- Get and display current date + time ---- //
             var date = new Date();
@@ -100,5 +103,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } 
             getLocation();
         </script>
+        </div>
     </body>
 </html>
