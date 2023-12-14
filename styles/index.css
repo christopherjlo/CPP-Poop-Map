@@ -49,9 +49,19 @@
   position: absolute;
   z-index: 99;
   margin-bottom: 10%;
-  height: 4%;
+  height: 6%;
   width: 6%;
   top:90%; bottom:15%; left:0.5%;
+}
+
+#friends_button {
+  font-size: 15px;
+  position: absolute;
+  z-index: 99;
+  margin-bottom: 10%;
+  height: 6%;
+  width: 6%;
+  top:90%; bottom:15%; left:7.5%;
 }
 
 #outer_div {

@@ -1,7 +1,50 @@
+@font-face {
+    font-family: 'nexaheavy';
+    src: url('../fonts/nexa/nexa-heavy.woff2'),
+         url('../fonts/nexa/nexa-heavy.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'nexaextra_light';
+    src: url('../fonts/nexa/nexa-extralight.woff2'),
+         url('../fonts/nexa/nexa-extralight.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'nexaextra_light';
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+}
+
 #latitude_field {
     visibility: hidden;
 }
 
 #longitude_field {
     visibility: hidden;
+}
+
+.parent-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;    
+    background-color: blue;
+}
+
+h1{
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'nexaheavy';
+    text-align: center;
+}
+
+p {
+    margin: 8px 2px;
 }

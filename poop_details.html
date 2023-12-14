@@ -4,11 +4,11 @@
         <link rel="stylesheet" href="styles/poop_details.css">
     </head>
     <body>
-        <div class="background">
-            <img src="/images/poop_pic.png" class="logo">
-            <div class=poop-form>
-                <h1>New Poop</h1>    
+        <img src="/images/poop_pic.png" class="logo">
+        <div class = "parent-container">    
+            <div class="poop-form">   
                 <form id="form" method="post">
+                    <h1>New Poop</h1>
                     <p class="title">Date and time</p><br>
                     <input type = "text" id = "datestamp" name = "datestamp">
                     <input type = "text" id = "timestamp" name = "timestamp">
@@ -26,6 +26,8 @@
                     <a href="index.php"><button class="button borderless">Back</button></a>
                 </form>
             </div>
+            </div>
+        </div>
         <script type="text/javascript">
             // ---- Get and display current date + time ---- //
             var date = new Date();
@@ -56,6 +58,5 @@
             } 
             getLocation();
         </script>
-        </div>
     </body>
 </html>

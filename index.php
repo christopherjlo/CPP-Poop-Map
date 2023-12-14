@@ -26,6 +26,7 @@ if (isset($_SESSION["currentID"])) {
         <div id="map"></div>
         <a href="poop_details.php"><button id="poop_button" class="button">Drop poop</button></a>
         <a href="home.html"><button id="sign_out_button" class="button">Sign Out</button></a>
+        <a href="friends.php"><button id="friends_button" class="button">See Friends</button></a>
     </div>
     <script type="text/javascript" src="scripts/index.js"></script>
     <script type ='text/javascript'>

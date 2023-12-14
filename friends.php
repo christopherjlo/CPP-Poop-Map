@@ -1,6 +1,6 @@
 <?php
+session_start();
 
-$_SESSION["currentID"] = 2;
 $tableHtml = "<table class='friends-table border'cellspacing=\"0\" cellpadding=\"0\">
 <tr>
     <th>Name</th>
@@ -27,7 +27,7 @@ if (isset($_SESSION["currentID"])) {
 
     // print_r($realFriends);
     if (sizeof($realFriends) == 0) {
-        echo "No friends.";
+        $responseMsg = "No Friends :(";
     } else {
         for ($i = 0; $i < sizeof($realFriends); $i++) {
             $stmt5 = sprintf("SELECT *  FROM Pooper WHERE userid = " . $realFriends[$i]);
@@ -144,22 +144,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </head>
 
     <body>
-        <br>
-        <h2 style='text-align: center;'>Friends List</h2>
-        <div class = "search-friend">
-            <form id="friendform" method="post">
-                <input type="email" name="email" placeholder="Search for an email:"><br><br>
-                <i ></i>
-                <input type="submit" value="Add Friend" />
-            </form>
-        </div>
-        <div class = 'header'>
+        <div id="bg_div">
+            <br>
+            <h2 style='text-align: center;'>Friends List</h2>
+            <div class = "search-friend">
+                <form id="friendform" method="post">
+                    <input type="email" name="email" placeholder="Search for an email:"><br><br>
+                    <i ></i>
+                    <input type="submit" value="Add Friend" />
+                </form>
+            </div>
+            <div class = 'header'>
 
-        </div>
-        <div class = 'table-container'>
-            <div style = 'margin-left: auto; margin-right: auto;'><?php echo $responseMsg ?></div>
-            <div class = 'table-child'>
-                <?php echo $tableHtml; ?>
+            </div>
+            <div class = 'table-container'>
+                <div style = 'margin-left: auto; margin-right: auto;'><?php echo $responseMsg ?></div>
+                <div class = 'table-child'>
+                    <?php echo $tableHtml; ?>
+                </div>
             </div>
         </div>
     </body>
