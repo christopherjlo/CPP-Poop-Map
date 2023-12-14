@@ -44,6 +44,14 @@
   top:88%; bottom:15%; left:45%;
 }
 
+#friend_button {
+  position: absolute;
+  z-index: 99;
+  height: 8%;
+  width: 10%;
+  top:5%; left:45%;
+}
+
 #sign_out_button {
   font-size: 15px;
   position: absolute;

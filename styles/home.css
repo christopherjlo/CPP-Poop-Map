@@ -47,6 +47,8 @@
     height: 8%;
     width: 8%;
     top:45%; left:38%;
+    color: white;
+    -webkit-text-stroke-color: black;
 }
 
 #signup_button {
@@ -54,7 +56,9 @@
     font-size: 30px;
     height: 8%;
     width: 10%;
-    top:45%; right:39%;  
+    top:45%; right:39%; 
+    color: white;
+    -webkit-text-stroke-color: black; 
 }
 
 #poop_gif {

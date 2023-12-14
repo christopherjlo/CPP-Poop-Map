@@ -56,11 +56,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class=poop-form>
                 <h1>New Poop</h1>    
                 <form id="form" method="post">
-                    <p class="title">Date and time</p><br>
+                    <p class="title">Date</p><br>
                     <input type = "text" id = "datestamp" name = "datestamp">
-                    <input type = "text" id = "timestamp" name = "timestamp">
+                    <p class="title">Time</p><br>
+                    <input type = "text" id = "timestamp" name = "timestamp"><br><br>
 
-                    <p id="show_coords"></p>
+                    <!-- <p id="show_coords"></p> -->
                     <input type = "text" name = "latitude" id = "latitude_field">
                     <input type = "text" name = "longitude" id = "longitude_field">
 
@@ -68,11 +69,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="text" name="tag" class="input blue-border" placeholder=" Enter location"><br>
 
                     <p class="title">Description (optional)</p><br>
-                    <input type="text" name="note" class="input blue-border" placeholder=" Enter description" style="width: 300px;"><br>
+                    <input type="text" name="note" class="input blue-border" placeholder=" Enter description"><br>
                     <input class="button borderless" type="submit" name="submit" value="Save" id="submit">
                 </form>
                 <a href="index.php"><button class="button borderless">Back</button></a>
             </div>
+            <a href="index.php"><button class="back_button borderless">Back</button></a>
         <script type="text/javascript">
             // ---- Get and display current date + time ---- //
             var date = new Date();
@@ -98,8 +100,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 lat.value = position.coords.latitude;
                 long.value = position.coords.longitude;
 
-                coord_p.innerHTML = "Latitude: " + position.coords.latitude +       //for testing/display
-                "<br>Longitude: " + position.coords.longitude;
+                // coord_p.innerHTML = "Latitude: " + position.coords.latitude +       //for testing/display
+                // "<br>Longitude: " + position.coords.longitude;
             } 
             getLocation();
         </script>

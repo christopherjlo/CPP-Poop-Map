@@ -74,6 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <img src="/images/poop_marker.png" id="poop_marker_logo">
         <h2 class="small" style="margin-top: 1%; color: black;">Don't have an account? <a id="create">Create one here!</a></h2>
     </div>
+    <a href="home.html"><button class="back_button">Back</button></a>
 </body>
 
 </html>

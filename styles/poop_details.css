@@ -21,7 +21,6 @@
 }
 
 * {
-    padding: 0;
     font-family: 'nexaextra_light';
 }
 
@@ -90,6 +89,20 @@ h1 {
     font-family: 'nexaheavy';
 }
 
+.back_button {
+    position: fixed;
+    font-family: 'nexaheavy';
+    border-radius: 15px;
+    width:5%;
+    left: 1%;
+    bottom: 3%;
+    height: 35px;
+    border-radius: 15px;
+    background-color: #ED7B07;
+    color: white;
+
+}
+
 .borderless {
     border: none;
 }
@@ -99,6 +112,10 @@ h1 {
     cursor: pointer;
 }
 
+.back_button:hover {
+    background-color: #9a5f07;
+    cursor: pointer;
+}
 
 #latitude_field {
     visibility: hidden;
