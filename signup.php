@@ -79,12 +79,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head>
     <title>Signup</title>
-    <link rel="stylesheet" href="styles/login.css">
+    <link rel="stylesheet" href="styles/signup.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 </head>
 
 <body>
-    <img src="images/poop_pic.png" class="logo">
+    <!-- <img src="images/poop_pic.png" class="logo"> -->
     <p class = "poop_title" href = "" > Poop Map </h1>
     <div class=login-form>
         <h1>Sign up</h1>
@@ -105,14 +105,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="text" name="lName" class="input blue-border" placeholder=" Enter Last name"><br>
 
             <p class="title">Password:</p><br>
-            <input type="password" name="password" class="input blue-border" placeholder=" Create Password"><br>
+            <input type="password" name="password" class="input blue-border" placeholder=" Enter Password"><br>
 
             <p class="title">Password confirmation:</p><br>
             <input type="password" name="password_confirmation" class="input blue-border" placeholder=" Confirm Password"><br>
 
             <input class="button borderless" type="submit" value="Sign up" />
         </form>
-        <img src="images/poop_marker.png" id="poop_marker_logo">
+        <img src="images/poop_pic.png" id="poop_marker_logo">
     </div>
+    <a href="home.html"><button class="back_button">Back</button></a>
 </body>
 </html>
