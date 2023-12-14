@@ -23,12 +23,10 @@ if (isset($_SESSION["currentID"])) {
 </head>
 <body>
     <div id="outer_div">
-        <a href="friends_poops.php"><button id="friend_button" class="button">Friends</button></a>
         <div id="map"></div>
-        <a href="poop_details.php"><button id="poop_button" class="button">Drop poop</button></a>
         <a href="home.html"><button id="sign_out_button" class="button">Sign Out</button></a>
     </div>
-    <script type="text/javascript" src="scripts/index.js"></script>
+    <script type="text/javascript" src="scripts/friends_poops.js"></script>
     <script type ='text/javascript'>
         var passedArray =  <?php echo json_encode($poop_coord_array); ?>;  // convert PHP array into JS array
         setCoords(passedArray);               // calls setCoords method in index.js (to set locations array) before initMap is called

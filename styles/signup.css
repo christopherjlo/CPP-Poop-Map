@@ -53,17 +53,21 @@ h2 {
 }
 
 .poop_title {
-    font-family: 'poop_title';
+    font-family: 'Impact';
     text-align: center;
     font-size: bold;
     font-size: 55;
-    position: absolute;
+    position: relative;
     left: 0; 
     right: 0; 
     width: 300;
     margin-left: auto; 
     margin-right: auto; 
+    margin-bottom:auto;
     top: 20px; 
+    color: white;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: black;
 }
 
 @media screen and (max-width: 676px) {
@@ -122,6 +126,20 @@ hr {
         height: 80%;
         margin: auto;
     }
+
+    .back_button {
+        position: fixed;
+        font-family: 'nexaheavy';
+        border-radius: 15px;
+        width:10%;
+        left: 1%;
+        bottom: 3%;
+        height: 35px;
+        border-radius: 15px;
+        background-color: #ED7B07;
+        color: white;
+        -webkit-text-stroke-color: black;
+    }
 }
 
 #form {
@@ -139,20 +157,25 @@ hr {
 .title {
     background-color: #E5E8E4;
     text-align: left;
-    margin-left: 15%;
+    margin-left: 12%;
     margin-bottom: -2%;
     font-weight: bold;
+    
 }
 
 .input {
     background-color: #BEBEBE;
     min-height: 40px;
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 12%;
+    margin-right: 12%;
     border-top: 0px;
     border-left: 0px;
     border-right: 0px;
     font-weight: bold;   
+}
+
+input[type=text] {
+    padding-left: 2%;
 }
 
 input[type=email] {
