@@ -34,7 +34,7 @@ function initMap() {
   const friendicon = {
     url: "images/poop_emoji.png",
     scaledSize: new google.maps.Size(30, 30)
-  };  
+  };  #
 
   // if(locations[count][5] == true){
   //   const icon = {
