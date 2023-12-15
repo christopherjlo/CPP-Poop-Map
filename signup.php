@@ -14,36 +14,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $emailErr = "Invalid email format";
         $errmsg = $emailErr;
         $is_invalid = true;
-    }
-
-    else if (empty($fname)) {
+    } else if (empty($fname)) {
         $fnameErr = "Please enter your first name";
         $errmsg = $fnameErr;
         $is_invalid = true;
-    }
-
-    else if (empty($lname)) {
-    $lnameErr = "Please enter your last name";
-    $errmsg = $lnameErr;
-    $is_invalid = true;
-    }
-
-    else if (empty($password)) {
+    } else if (empty($lname)) {
+        $lnameErr = "Please enter your last name";
+        $errmsg = $lnameErr;
+        $is_invalid = true;
+    } else if (empty($password)) {
         $passwordErr = "Please enter your password";
         $errmsg = $passwordErr;
         $is_invalid = true;
-    }
-
-    else if ($password != $cpassword) {
+    } else if ($password != $cpassword) {
         $passwordCErr = "Passwords do not match";
         $errmsg = $passwordCErr;
         $is_invalid = true;
-    }
-    else {
+    } else {
         $mysqli = require __DIR__ . "/database/database.php";
 
         # Email validation
-        $query = "SELECT * FROM pooper WHERE email = '" . $email . "'";
+        $query = "SELECT * FROM Pooper WHERE email = '" . $email . "'";
 
         $result = $mysqli->query($query);
 
@@ -51,25 +42,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             # Email already exists
             $is_invalid = true;
             $errmsg = "Email address taken!";
-        }
-        else {
+        } else {
             # Add new entry to pooper
-            $sql = "INSERT INTO pooper(fName, lName, email, passwordHash)
+            $sql = "INSERT INTO Pooper(fName, lName, email, passwordHash)
             VALUES (?, ?, ?, ?)";
-            
+
             $stmt = $mysqli->stmt_init();
-    
-            if(!$stmt->prepare($sql)) {
+
+            if (!$stmt->prepare($sql)) {
                 die("SQL error: " . $mysqli->error);
             }
 
             $passwordHash = password_hash($_POST["password"], PASSWORD_DEFAULT);
-            
+
             $stmt->bind_param("ssss", $_POST["fName"], $_POST["lName"], $_POST["email"], $passwordHash);
-    
+
             $stmt->execute();
 
-            header("Location: signup-success.html");
+            header("Location: home.html");
         }
     }
 }
@@ -77,6 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <html>
+
 <head>
     <title>Signup</title>
     <link rel="stylesheet" href="styles/signup.css">
@@ -85,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
     <!-- <img src="images/poop_pic.png" class="logo"> -->
-    <p class = "poop_title" href = "" > Poop Map </h1>
+    <p class="poop_title" href=""> Poop Map </h1>
     <div class=login-form>
         <h1>Sign up</h1>
         <div id="error" class="error">
@@ -94,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "<p class='error'>", $errmsg, "</p>";
             } ?>
         </div>
-        <form id="form" method = "post">
+        <form id="form" method="post">
             <p class="title">Email:</p><br>
             <input type="email" name="email" class="input blue-border" placeholder=" Enter Email"><br>
 
@@ -116,4 +107,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
     <a href="home.html"><button class="back_button">Back</button></a>
 </body>
+
 </html>

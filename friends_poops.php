@@ -27,25 +27,6 @@ if (isset($_SESSION["currentID"])) {
     FROM Poop
     INNER JOIN Pooper ON Poop.pooperid=Pooper.userid;");
 
-    $stmt = sprintf("SELECT *  FROM Friends WHERE usr1id = " . $_SESSION["currentID"]);
-    $result = $mysqli->query($stmt);
-
-    $realFriends = []; // list of all your friends
-    while ($row = $result->fetch_assoc()) {
-
-        $stmt2 = sprintf("SELECT * FROM Friends WHERE usr1id = " . $row['usr2id'] . " AND usr2id = " . $_SESSION["currentID"]);
-        $result2 = $mysqli->query($stmt2);
-        $friend = $result2->fetch_assoc();
-
-        if (!empty($friend)) {
-            array_push($realFriends, $friend['usr1id']);
-        }
-    }
-
-    $sql = sprintf("SELECT Pooper.userid, Poop.latitude, Poop.longitude, Poop.tag, Poop.note, Poop.datePosted, Pooper.fName, Pooper.lName 
-    FROM Poop
-    INNER JOIN Pooper ON Poop.pooperid=Pooper.userid;");
-
     $result = $mysqli->query($sql);
     $poop_coord_array = [];
     while ($row = $result->fetch_assoc()) {
@@ -57,9 +38,7 @@ if (isset($_SESSION["currentID"])) {
             }
         }
     }
-} else {
-    echo ("<h1 style='text-align:center'> Nothing to see here, please login or create an account </h1>");
-}
+} else {echo("<h1 style='text-align:center'> Nothing to see here, please login or create an account </h1>");}
 ?>
 
 <html>
@@ -72,7 +51,7 @@ if (isset($_SESSION["currentID"])) {
     <div id="outer_div">
         <div id="map"></div>
         <a href="index.php"><button id="back_button" class="button">Back</button></a>
-        <!-- 
+<!-- 
         <form method="post" action="logout.php">
             <a href="home.html"><input type ="submit" id="sign_out_button" name="sign_out_button" class="button" value="Sign Out"/></a>
         </form> -->
