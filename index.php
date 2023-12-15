@@ -23,7 +23,7 @@ if (isset($_SESSION["currentID"])) {
 </head>
 <body>
     <div id="outer_div">
-        <a href="friends_poops.php"><button id="friend_button" class="button">Friends</button></a>
+        <a href="friends_poops.php"><button id="friend_button" class="button"></button></a>
         <div id="map"></div>
         <a href="poop_details.php"><button id="poop_button" class="button">Drop poop</button></a>
         <a href="home.html"><button id="sign_out_button" class="button">Sign Out</button></a>
