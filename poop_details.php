@@ -46,35 +46,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <html>
-    <head>
-        <title>Poop Creation</title>
-        <link rel="stylesheet" href="styles/poop_details.css">
-    </head>
-    <body>
-        <div class="background">
-            <img src="/images/poop_pic.png" class="logo">
-            <div class=poop-form>
-                <h1>New Poop</h1>    
-                <form id="form" method="post">
-                    <p class="title">Date</p><br>
-                    <input type = "text" id = "datestamp" name = "datestamp">
-                    <p class="title">Time</p><br>
-                    <input type = "text" id = "timestamp" name = "timestamp"><br><br>
 
-                    <!-- <p id="show_coords"></p> -->
-                    <input type = "text" name = "latitude" id = "latitude_field">
-                    <input type = "text" name = "longitude" id = "longitude_field">
+<head>
+    <title>Poop Creation</title>
+    <link rel="stylesheet" href="styles/poop_details.css">
+</head>
 
-                    <p class="title">Location (optional)</p><br>
-                    <input type="text" name="tag" class="input blue-border" placeholder=" Enter location"><br>
+<body>
+    <div class="background">
+        <img src="/images/poop_pic.png" class="logo">
+        <div class=poop-form>
+            <h1>New Poop</h1>
+            <form id="form" method="post">
+                <p class="title">Date</p><br>
+                <input type="text" id="datestamp" name="datestamp">
+                <p class="title">Time</p><br>
+                <input type="text" id="timestamp" name="timestamp"><br><br>
 
-                    <p class="title">Description (optional)</p><br>
-                    <input type="text" name="note" class="input blue-border" placeholder=" Enter description"><br>
-                    <input class="button borderless" type="submit" name="submit" value="Save" id="submit">
-                </form>
-                <a href="index.php"><button class="button borderless">Back</button></a>
-            </div>
-            <a href="index.php"><button class="back_button borderless">Back</button></a>
+                <!-- <p id="show_coords"></p> -->
+                <input type="text" name="latitude" id="latitude_field">
+                <input type="text" name="longitude" id="longitude_field">
+
+                <p class="title">Location (optional)</p><br>
+                <input type="text" name="tag" class="input blue-border" placeholder=" Enter location"><br>
+
+                <p class="title">Description (optional)</p><br>
+                <input type="text" name="note" class="input blue-border" placeholder=" Enter description"><br>
+                <input class="button borderless" type="submit" name="submit" value="Save" id="submit">
+            </form>
+            <a href="home.php"><button class="button borderless">Back</button></a>
+        </div>
+        <a href="home.php"><button class="back_button borderless">Back</button></a>
         <script type="text/javascript">
             // ---- Get and display current date + time ---- //
             var date = new Date();
@@ -85,26 +87,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             document.getElementById("timestamp").value = currentTime;
 
             // ---- Get and display coordinates ---- //
-            const coord_p = document.getElementById("show_coords");             //for testing/display
+            const coord_p = document.getElementById("show_coords"); //for testing/display
             var lat = document.getElementById("latitude_field");
             var long = document.getElementById("longitude_field");
 
             function getLocation() {
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(showPosition);
-                } else { 
+                } else {
                     coord_p.innerHTML = "Geolocation is not supported by this browser.";
                 }
             }
+
             function showPosition(position) {
                 lat.value = position.coords.latitude;
                 long.value = position.coords.longitude;
 
                 // coord_p.innerHTML = "Latitude: " + position.coords.latitude +       //for testing/display
                 // "<br>Longitude: " + position.coords.longitude;
-            } 
+            }
             getLocation();
         </script>
-        </div>
-    </body>
+    </div>
+</body>
+
 </html>

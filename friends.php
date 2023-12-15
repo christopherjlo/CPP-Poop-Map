@@ -4,6 +4,7 @@ session_start();
 $tableHtml = "<table class='friends-table'cellspacing=\"0\" cellpadding=\"0\">
 <tr>
     <th id='name_header'>Name</th>
+    <th id='name_header'>Name</th>
 </tr>";
 $responseMsg = "";
 
@@ -39,7 +40,9 @@ if (isset($_SESSION["currentID"])) {
             $tableHtml .= "</tr>";
         }
     }
-} else {echo("session not set!");}
+} else {
+    echo ("session not set!");
+}
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
@@ -120,28 +123,28 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
 
         // print_r($realFriends);
-        if (sizeof($realFriends) == 0) {
-            echo "No friends.";
-        } else {
-            for ($i = 0; $i < sizeof($realFriends); $i++) {
-                $stmt5 = sprintf("SELECT *  FROM Pooper WHERE userid = " . $realFriends[$i]);
-                $result5 = $mysqli5->query($stmt5);
-                $users = $result5->fetch_assoc();
+        // if (sizeof($realFriends) == 0) {
+        //     echo "No friends.";
+        // } else {
+        //     for ($i = 0; $i < sizeof($realFriends); $i++) {
+        //         $stmt5 = sprintf("SELECT *  FROM Pooper WHERE userid = " . $realFriends[$i]);
+        //         $result5 = $mysqli5->query($stmt5);
+        //         $users = $result5->fetch_assoc();
 
-                //echo $users['fName'];
-            }
-        }
+        //         //echo $users['fName'];
+        //     }
+        // }
     }
 }
 ?>
 
 <html>
 
-    <head>
-        <title>Friends Page</title>
-        <link rel="stylesheet" href="styles/friends.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-    </head>
+<head>
+    <title>Friends Page</title>
+    <link rel="stylesheet" href="styles/friends.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+</head>
 
     <body>
         <div id="bg_div">
@@ -160,8 +163,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <?php echo $tableHtml; ?>
                 </div>
             </div>
-            <a href="index.php"><button class="back_button">Back</button></a>
         </div>
-    </body>
+        <a href="home.php"><button class="back_button">Back</button></a>
+    </div>
+</body>
 
 </html>
