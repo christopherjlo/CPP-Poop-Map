@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-$tableHtml = "<table class='friends-table border'cellspacing=\"0\" cellpadding=\"0\">
+$tableHtml = "<table class='friends-table'cellspacing=\"0\" cellpadding=\"0\">
 <tr>
-    <th>Name</th>
+    <th id='name_header'>Name</th>
 </tr>";
 $responseMsg = "";
 
@@ -35,7 +35,7 @@ if (isset($_SESSION["currentID"])) {
             $users = $result5->fetch_assoc();
 
             $tableHtml .= "<tr class='border'>";
-            $tableHtml .= "<td class='border'>". $users["fName"] . ' ' . $users["lName"] . "</td>";
+            $tableHtml .= "<td class='border' id='row_content'>". $users["fName"] . ' ' . $users["lName"] . "</td>";
             $tableHtml .= "</tr>";
         }
     }
@@ -154,15 +154,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <input type="submit" value="Add Friend" />
                 </form>
             </div>
-            <div class = 'header'>
-
-            </div>
             <div class = 'table-container'>
                 <div style = 'font-weight: bold; margin-left: auto; margin-right: auto;'><?php echo $responseMsg ?></div>
                 <div class = 'table-child'>
                     <?php echo $tableHtml; ?>
                 </div>
             </div>
+            <a href="index.php"><button class="back_button">Back</button></a>
         </div>
     </body>
 
