@@ -35,7 +35,7 @@ if (isset($_SESSION["currentID"])) {
             $users = $result5->fetch_assoc();
 
             $tableHtml .= "<tr class='border'>";
-            $tableHtml .= "<td class='border' id='row_content'>" . $users["fName"] . ' ' . $users["lName"] . "</td>";
+            $tableHtml .= "<td class='border' id='row_content'>". $users["fName"] . ' ' . $users["lName"] . "</td>";
             $tableHtml .= "</tr>";
         }
     }
@@ -145,21 +145,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 </head>
 
-<body>
-    <div id="bg_div">
-        <br>
-        <h2 style='text-align: center;'>Friends List</h2>
-        <div class="search-friend">
-            <form id="friendform" method="post">
-                <input type="email" name="email" placeholder="Search for an email:"><br><br>
-                <i></i>
-                <input type="submit" value="Add Friend" />
-            </form>
-        </div>
-        <div class='table-container'>
-            <div style='font-weight: bold; margin-left: auto; margin-right: auto;'><?php echo $responseMsg ?></div>
-            <div class='table-child'>
-                <?php echo $tableHtml; ?>
+    <body>
+        <div id="bg_div">
+            <br>
+            <h2 style='text-align: center;'>Friends List</h2>
+            <div class = "search-friend">
+                <form id="friendform" method="post">
+                    <input type="email" name="email" placeholder="Search for an email:"><br><br>
+                    <i ></i>
+                    <input type="submit" value="Add Friend" />
+                </form>
+            </div>
+            <div class = 'table-container'>
+                <div style = 'font-weight: bold; margin-left: auto; margin-right: auto;'><?php echo $responseMsg ?></div>
+                <div class = 'table-child'>
+                    <?php echo $tableHtml; ?>
+                </div>
             </div>
         </div>
         <a href="home.php"><button class="back_button">Back</button></a>

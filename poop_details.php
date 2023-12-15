@@ -74,7 +74,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="text" name="note" class="input blue-border" placeholder=" Enter description"><br>
                 <input class="button borderless" type="submit" name="submit" value="Save" id="submit">
             </form>
-            <a href="home.php"><button class="button borderless">Back</button></a>
         </div>
         <a href="home.php"><button class="back_button borderless">Back</button></a>
         <script type="text/javascript">
