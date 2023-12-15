@@ -38,7 +38,9 @@ if (isset($_SESSION["currentID"])) {
             }
         }
     }
-} else {echo("<h1 style='text-align:center'> Nothing to see here, please login or create an account </h1>");}
+} else {
+    echo ("<h1 style='text-align:center'> Nothing to see here, please login or create an account </h1>");
+}
 ?>
 
 <html>
@@ -50,8 +52,8 @@ if (isset($_SESSION["currentID"])) {
 <body>
     <div id="outer_div">
         <div id="map"></div>
-        <a href="index.php"><button id="back_button" class="button">Back</button></a>
-<!-- 
+        <a href="home.php"><button id="back_button" class="button">Back</button></a>
+        <!-- 
         <form method="post" action="logout.php">
             <a href="home.html"><input type ="submit" id="sign_out_button" name="sign_out_button" class="button" value="Sign Out"/></a>
         </form> -->

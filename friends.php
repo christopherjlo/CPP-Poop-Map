@@ -162,7 +162,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <?php echo $tableHtml; ?>
             </div>
         </div>
-        <a href="index.php"><button class="back_button">Back</button></a>
+        <a href="home.php"><button class="back_button">Back</button></a>
     </div>
 </body>
 

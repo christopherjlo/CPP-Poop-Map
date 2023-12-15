@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $stmt->execute();
 
-            header("Location: home.html");
+            header("Location: index.html");
         }
     }
 }
@@ -105,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
         <img src="images/poop_pic.png" id="poop_marker_logo">
     </div>
-    <a href="home.html"><button class="back_button">Back</button></a>
+    <a href="index.html"><button class="back_button">Back</button></a>
 </body>
 
 </html>
