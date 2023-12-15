@@ -158,7 +158,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             </div>
             <div class = 'table-container'>
-                <div style = 'margin-left: auto; margin-right: auto;'><?php echo $responseMsg ?></div>
+                <div style = 'font-weight: bold; margin-left: auto; margin-right: auto;'><?php echo $responseMsg ?></div>
                 <div class = 'table-child'>
                     <?php echo $tableHtml; ?>
                 </div>
