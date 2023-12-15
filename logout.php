@@ -1,7 +1,6 @@
 <?php
-    session_start();
-    unset($_SESSION["currentID"]);
-    session_destroy();
+session_start();
+unset($_SESSION["currentID"]);
+session_destroy();
 
-    header("Location: home.html");
-?>
+header("Location: index.html");

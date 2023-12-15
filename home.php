@@ -14,14 +14,18 @@ if (isset($_SESSION["currentID"])) {
     while ($row = $result->fetch_assoc()) {
         array_push($poop_coord_array, [$row["latitude"], $row["longitude"], $row['tag'], $row['note'], $row['datePosted']]);
     }
-} else {echo("<h1 style='text-align:center'> Nothing to see here, please login or create an account </h1>");}
+} else {
+    echo ("<h1 style='text-align:center'> Nothing to see here, please login or create an account </h1>");
+}
 
 ?>
 
 <html>
+
 <head>
-    <link rel = "stylesheet" href = "styles/index.css">
+    <link rel="stylesheet" href="styles/index.css">
 </head>
+
 <body>
     <div id="outer_div">
         <a href="friends_poops.php"><button id="friend_button" class="button"></button></a>
@@ -31,17 +35,17 @@ if (isset($_SESSION["currentID"])) {
         <!-- <a href="home.html"><input type = "button" id="sign_out_button" name="sign_out_button" class="button" >Sign Out</button></a> -->
 
         <form method="post" action="logout.php">
-            <a href="home.html"><input type ="submit" id="sign_out_button" name="sign_out_button" class="button" value="Sign Out"/></a>
+            <a href="index.html"><input type="submit" id="sign_out_button" name="sign_out_button" class="button" value="Sign Out" /></a>
         </form>
-        
+
     </div>
     <script type="text/javascript" src="scripts/index.js"></script>
-    <script type ='text/javascript'>
-        var passedArray =  <?php echo json_encode($poop_coord_array); ?>;  // convert PHP array into JS array
-        setCoords(passedArray);               // calls setCoords method in index.js (to set locations array) before initMap is called
+    <script type='text/javascript'>
+        var passedArray = <?php echo json_encode($poop_coord_array); ?>; // convert PHP array into JS array
+        setCoords(passedArray); // calls setCoords method in index.js (to set locations array) before initMap is called
     </script>
-    <script async defer
-        src=<?php echo $apiCallString ?>>
+    <script async defer src=<?php echo $apiCallString ?>>
     </script>
 </body>
+
 </html>

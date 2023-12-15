@@ -25,12 +25,13 @@ while ($row = $result->fetch_assoc()) {
 ?>
 
 <html>
+
 <head>
     <title>User</title>
 </head>
-<script type ='text/javascript' src="test.js"></script>
-<script type ='text/javascript'>
-    var passedArray =  <?php echo json_encode($poop_coord_array); ?>;  // convert PHP array into JS array
+<script type='text/javascript' src="test.js"></script>
+<script type='text/javascript'>
+    var passedArray = <?php echo json_encode($poop_coord_array); ?>; // convert PHP array into JS array
     printCoords(passedArray);
 </script>
 
@@ -48,7 +49,8 @@ while ($row = $result->fetch_assoc()) {
         // foreach ($user as $coordinatePair) {
         //     echo "$coordinatePair.gettype()";
         // }
-        // ?>
+        // 
+        ?>
 
     </div>
 </body>

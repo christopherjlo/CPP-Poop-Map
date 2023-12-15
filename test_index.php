@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 
@@ -20,6 +19,7 @@ if (isset($_SESSION["currentID"])) {
 ?>
 
 <html>
+
 <head>
     <title>User</title>
 </head>
