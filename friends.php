@@ -1,9 +1,9 @@
 <?php
+session_start();
 
-$_SESSION["currentID"] = 2;
-$tableHtml = "<table class='friends-table border'cellspacing=\"0\" cellpadding=\"0\">
+$tableHtml = "<table class='friends-table'cellspacing=\"0\" cellpadding=\"0\">
 <tr>
-    <th>Name</th>
+    <th id='name_header'>Name</th>
 </tr>";
 $responseMsg = "";
 
@@ -27,7 +27,7 @@ if (isset($_SESSION["currentID"])) {
 
     // print_r($realFriends);
     if (sizeof($realFriends) == 0) {
-        echo "No friends.";
+        $responseMsg = "No Friends :(";
     } else {
         for ($i = 0; $i < sizeof($realFriends); $i++) {
             $stmt5 = sprintf("SELECT *  FROM Pooper WHERE userid = " . $realFriends[$i]);
@@ -35,7 +35,7 @@ if (isset($_SESSION["currentID"])) {
             $users = $result5->fetch_assoc();
 
             $tableHtml .= "<tr class='border'>";
-            $tableHtml .= "<td class='border'>". $users["fName"] . ' ' . $users["lName"] . "</td>";
+            $tableHtml .= "<td class='border' id='row_content'>". $users["fName"] . ' ' . $users["lName"] . "</td>";
             $tableHtml .= "</tr>";
         }
     }
@@ -144,23 +144,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </head>
 
     <body>
-        <br>
-        <h2 style='text-align: center;'>Friends List</h2>
-        <div class = "search-friend">
-            <form id="friendform" method="post">
-                <input type="email" name="email" placeholder="Search for an email:"><br><br>
-                <i ></i>
-                <input type="submit" value="Add Friend" />
-            </form>
-        </div>
-        <div class = 'header'>
-
-        </div>
-        <div class = 'table-container'>
-            <div style = 'margin-left: auto; margin-right: auto;'><?php echo $responseMsg ?></div>
-            <div class = 'table-child'>
-                <?php echo $tableHtml; ?>
+        <div id="bg_div">
+            <br>
+            <h2 style='text-align: center;'>Friends List</h2>
+            <div class = "search-friend">
+                <form id="friendform" method="post">
+                    <input type="email" name="email" placeholder="Search for an email:"><br><br>
+                    <i ></i>
+                    <input type="submit" value="Add Friend" />
+                </form>
             </div>
+            <div class = 'table-container'>
+                <div style = 'font-weight: bold; margin-left: auto; margin-right: auto;'><?php echo $responseMsg ?></div>
+                <div class = 'table-child'>
+                    <?php echo $tableHtml; ?>
+                </div>
+            </div>
+            <a href="index.php"><button class="back_button">Back</button></a>
         </div>
     </body>
 

@@ -48,18 +48,31 @@
   position: absolute;
   z-index: 99;
   height: 8%;
-  width: 10%;
-  top:5%; left:45%;
+  width: 4%;
+  top:3%; left:48%;
+  background-image: url("/images/friend_page_icon.png");
+  background-size: cover;
 }
+
 
 #sign_out_button {
   font-size: 15px;
   position: absolute;
   z-index: 99;
   margin-bottom: 10%;
-  height: 4%;
+  height: 6%;
   width: 6%;
   top:90%; bottom:15%; left:0.5%;
+}
+
+#friends_button {
+  font-size: 15px;
+  position: absolute;
+  z-index: 99;
+  margin-bottom: 10%;
+  height: 6%;
+  width: 6%;
+  top:90%; bottom:15%; left:7.5%;
 }
 
 #outer_div {
