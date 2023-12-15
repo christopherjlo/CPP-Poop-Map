@@ -75,6 +75,14 @@
   font-size: 15px;
 }
 
+.name {
+  font-family: 'Verdana';
+  font-weight: bold;
+  text-align:center;
+  font-size: 25px;
+  color:#000000;  
+}
+
 .tag {
   font-family: 'Verdana';
   font-weight: bold;
