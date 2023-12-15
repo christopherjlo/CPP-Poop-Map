@@ -44,17 +44,18 @@ if (isset($_SESSION["currentID"])) {
 <html>
 
 <head>
-    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/friends_poops.css">
 </head>
 
 <body>
     <div id="outer_div">
         <div id="map"></div>
-        <!-- <a href="home.html"><button id="sign_out_button" class="button">Sign Out</button></a> -->
-
+        <a href="index.php"><button id="back_button" class="button">Back</button></a>
+<!-- 
         <form method="post" action="logout.php">
             <a href="home.html"><input type ="submit" id="sign_out_button" name="sign_out_button" class="button" value="Sign Out"/></a>
-        </form>
+        </form> -->
+
 
     </div>
     <script type="text/javascript" src="scripts/friends_poops.js"></script>
