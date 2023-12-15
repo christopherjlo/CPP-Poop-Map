@@ -56,6 +56,7 @@ if (isset($_SESSION["currentID"])) {
             <a href="home.html"><input type ="submit" id="sign_out_button" name="sign_out_button" class="button" value="Sign Out"/></a>
         </form> -->
 
+
     </div>
     <script type="text/javascript" src="scripts/friends_poops.js"></script>
     <script type='text/javascript'>
