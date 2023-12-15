@@ -14,15 +14,8 @@ if (isset($_SESSION["currentID"])) {
     while ($row = $result->fetch_assoc()) {
         array_push($poop_coord_array, [$row["latitude"], $row["longitude"], $row['tag'], $row['note'], $row['datePosted']]);
     }
-}
+} else {echo("<h1 style='text-align:center'> Nothing to see here, please login or create an account </h1>");}
 
-function end_session() {
-    unset($_SESSION["currentID"]);
-}
-
-if(array_key_exists('sign_out_button', $_POST)){
-    end_session();
- }
 ?>
 
 <html>
@@ -32,11 +25,12 @@ if(array_key_exists('sign_out_button', $_POST)){
 <body>
     <div id="outer_div">
         <a href="friends_poops.php"><button id="friend_button" class="button"></button></a>
+        <a href="friends.php"><button id="friends_button" class="button">Friends List</button></a>
         <div id="map"></div>
         <a href="poop_details.php"><button id="poop_button" class="button">Drop poop</button></a>
         <!-- <a href="home.html"><input type = "button" id="sign_out_button" name="sign_out_button" class="button" >Sign Out</button></a> -->
 
-        <form method="post" action="home.html">
+        <form method="post" action="logout.php">
             <a href="home.html"><input type ="submit" id="sign_out_button" name="sign_out_button" class="button" value="Sign Out"/></a>
         </form>
         
