@@ -15,6 +15,14 @@ if (isset($_SESSION["currentID"])) {
         array_push($poop_coord_array, [$row["latitude"], $row["longitude"], $row['tag'], $row['note'], $row['datePosted']]);
     }
 }
+
+function end_session() {
+    unset($_SESSION["currentID"]);
+}
+
+if(array_key_exists('sign_out_button', $_POST)){
+    end_session();
+ }
 ?>
 
 <html>
@@ -26,7 +34,12 @@ if (isset($_SESSION["currentID"])) {
         <a href="friends_poops.php"><button id="friend_button" class="button"></button></a>
         <div id="map"></div>
         <a href="poop_details.php"><button id="poop_button" class="button">Drop poop</button></a>
-        <a href="home.html"><button id="sign_out_button" class="button">Sign Out</button></a>
+        <!-- <a href="home.html"><input type = "button" id="sign_out_button" name="sign_out_button" class="button" >Sign Out</button></a> -->
+
+        <form method="post" action="home.html">
+            <a href="home.html"><input type ="submit" id="sign_out_button" name="sign_out_button" class="button" value="Sign Out"/></a>
+        </form>
+        
     </div>
     <script type="text/javascript" src="scripts/index.js"></script>
     <script type ='text/javascript'>
