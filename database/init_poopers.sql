@@ -52,8 +52,12 @@ insert into Poop(pooperid,latitude,longitude,tag,datePosted,timePosted, note) va
 
 #populate friends table
 insert into Friends(usr1id,usr2id) values(1,2); # Chris and Justin
+insert into Friends(usr1id,usr2id) values(2,1); 
 insert into Friends(usr1id,usr2id) values(2,3); # Justin and Jason
+insert into Friends(usr1id,usr2id) values(3,2); 
 insert into Friends(usr1id,usr2id) values(3,4); # Jason and Jacob
+insert into Friends(usr1id,usr2id) values(4,3); 
 insert into Friends(usr1id,usr2id) values(4,1); #Jacob and Chris
+insert into Friends(usr1id,usr2id) values(1,4);
 
 
