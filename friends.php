@@ -4,7 +4,6 @@ session_start();
 $tableHtml = "<table class='friends-table'cellspacing=\"0\" cellpadding=\"0\">
 <tr>
     <th id='name_header'>Name</th>
-    <th id='name_header'>Name</th>
 </tr>";
 $responseMsg = "";
 
