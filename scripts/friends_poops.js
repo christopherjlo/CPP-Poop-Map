@@ -31,6 +31,11 @@ function initMap() {
     scaledSize: new google.maps.Size(30, 30)
   };  
 
+  const friendicon = {
+    url: "images/poop_emoji.png",
+    scaledSize: new google.maps.Size(30, 30)
+  };  
+
   // if(locations[count][5] == true){
   //   const icon = {
   //     url: "images/friendpoop.png",
